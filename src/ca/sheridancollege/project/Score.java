@@ -21,5 +21,5 @@ public class Score {
 
     public int getPoints() {
         return points;
-    }
+    } 
 }
