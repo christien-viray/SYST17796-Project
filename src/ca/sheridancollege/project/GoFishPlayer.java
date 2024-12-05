@@ -47,119 +47,47 @@ public class GoFishPlayer extends Player {
     // checks if set of 4 cards exist in deck
     public boolean checkForSet() {
 
-        int count_1 = 0;
-        int count_2 = 0;
-        int count_3 = 0;
-        int count_4 = 0;
-        int count_5 = 0;
-        int count_6 = 0;
-        int count_7 = 0;
-        int count_8 = 0;
-        int count_9 = 0;
-        int count_10 = 0;
+        List<GoFishCard> currentCards = this.hand.getCards();
+        Map<String, Integer> duplicateTracker = new HashMap<String, Integer>();
 
-        int count_king = 0;
-        int count_queen = 0;
-        int count_ace = 0;
-        int count_jack = 0;
+        duplicateTracker.put("Ace", 0);
+        duplicateTracker.put("2", 0);
+        duplicateTracker.put("3", 0);
+        duplicateTracker.put("4", 0);
+        duplicateTracker.put("5", 0);
+        duplicateTracker.put("6", 0);
+        duplicateTracker.put("7", 0);
+        duplicateTracker.put("8", 0);
+        duplicateTracker.put("9", 0);
+        duplicateTracker.put("10", 0);
+        duplicateTracker.put("King", 0);
+        duplicateTracker.put("Queen", 0);
+        duplicateTracker.put("Jack", 0);
+        duplicateTracker.put("Hearts", 0);
+        duplicateTracker.put("Diamonds", 0);
+        duplicateTracker.put("Spades", 0);
+        duplicateTracker.put("Clubs", 0);
 
-        int count_spades = 0;
-        int count_hearts = 0;
-        int count_diamonds = 0;
-        int count_clubs = 0;
+        // iteration over cards in hand
+        for (int x = 0; x < currentCards.size(); x++) {
+            String[] splitTemp = currentCards.get(x).toString().split(" ");
+            String rankTemp = splitTemp[0];
+            String suitTemp = splitTemp[1];
 
-        List<GoFishCard> cardsInHand = this.hand.getCards();
-        Map<Integer, Integer> countList = new HashMap<Integer, Integer>();
+            int prevCountRank = duplicateTracker.get(rankTemp);
+            int prevCountSuit = duplicateTracker.get(suitTemp);
 
-        for (int x = 0; x < cardsInHand.size(); x++) {
-        }
+            duplicateTracker.remove(rankTemp);
+            duplicateTracker.remove(suitTemp);
 
-        for (int x = 0; x < cardsInHand.size(); x++) {
-            countList.put(x, 0);
-            String temp = cardsInHand.get(x).toString();
-            String[] tempNum = temp.split(" ");
-
-            switch (tempNum[0]) {
-                case "Ace":
-                    count_ace += 1;
-                    break;
-                case "2":
-                    count_2 += 1;
-                    break;
-                case "3":
-                    count_3 += 1;
-                    break;
-                case "4":
-                    count_4 += 1;
-                    break;
-                case "5":
-                    count_5 += 1;
-                    break;
-                case "6":
-                    count_6 += 1;
-                    break;
-                case "7":
-                    count_7 += 1;
-                    break;
-                case "8":
-                    count_8 += 1;
-                    break;
-                case "9":
-                    count_9 += 1;
-                    break;
-                case "10":
-                    count_10 += 1;
-                    break;
-                case "Jack":
-                    count_jack += 1;
-                    break;
-                case "Queen":
-                    count_queen += 1;
-                    break;
-                case "king":
-                    count_king += 1;
-                    break;
-
-            }
-
-            switch (tempNum[1]) {
-                case "Spades":
-                    count_spades += 1;
-                    break;
-                case "Diamonds":
-                    count_diamonds += 1;
-                    break;
-                case "Hearts":
-                    count_hearts += 1;
-                    break;
-                case "Clubs":
-                    count_clubs += 1;
-                    break;
-            }
-
-            // check if each count has more than 4 
-            countList.add(count_ace);
-            countList.add(count_2);
-            countList.add(count_3);
-            countList.add(count_4);
-            countList.add(count_5);
-            countList.add(count_6);
-            countList.add(count_7);
-            countList.add(count_8);
-            countList.add(count_9);
-            countList.add(count_10);
-            countList.add(count_jack);
-            countList.add(count_queen);
-            countList.add(count_king);
-            countList.add(count_diamonds);
-            countList.add(count_spades);
-            countList.add(count_clubs);
-            countList.add(count_hearts);
-
-
-            for 
+            duplicateTracker.put(rankTemp, prevCountRank + 1);
+            duplicateTracker.put(suitTemp, prevCountSuit + 1);
 
         }
+
+        // iterating over values in hashmap
+        if ()
+
     }
 
     public Hand getHand() {
