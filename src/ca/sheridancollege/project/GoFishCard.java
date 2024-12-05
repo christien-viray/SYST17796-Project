@@ -2,6 +2,10 @@ package ca.sheridancollege.project;
 
 import ca.sheridancollege.project.Card;
 
+/**
+ * @author Elliot Currie
+ */
+
 public class GoFishCard extends Card {
 
     private boolean isRequested;

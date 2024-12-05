@@ -23,7 +23,7 @@ public class GoFishPlayer extends Player {
 
     public GoFishPlayer(String name) {
         super(name);
-        this.hand= new Hand();
+        this.hand = new Hand();
     }
 
     public boolean askForCard(GoFishPlayer otherPlayer, String rank, String suit) {
@@ -51,23 +51,29 @@ public class GoFishPlayer extends Player {
         List<GoFishCard> currentCards = this.hand.getCards();
         Map<String, Integer> duplicateTracker = new HashMap<String, Integer>();
 
-    String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-    for (String rank : ranks) {
-        duplicateTracker.put(rank, 0);
-    }
-
-    for (GoFishCard card : currentCards) {
-        String rank = card.getRank();
-        duplicateTracker.put(rank, duplicateTracker.get(rank) + 1);
-    }
-
-    for (int count : duplicateTracker.values()) {
-        if (count == 4) {
-            return true;
+        String[] ranks = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+        for (String rank : ranks) {
+            duplicateTracker.put(rank, 0);
         }
-    }
 
-    return false;
+        for (GoFishCard card : currentCards) {
+            String rank = card.getRank();
+            if (duplicateTracker.get(rank) != null) {
+
+                duplicateTracker.put(rank, duplicateTracker.get(rank) + 1);
+            } else {
+                duplicateTracker.put(rank, 1);
+            }
+
+        }
+
+        for (int count : duplicateTracker.values()) {
+            if (count == 4) {
+                return true;
+            }
+        }
+
+        return false;
 
     }
 

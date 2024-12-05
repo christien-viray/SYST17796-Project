@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Christian Viray
+ * @author Elliot Currie
+ */
+
 public class GoFishGame extends Game {
 
     public static void main(String[] args) {
@@ -64,7 +69,7 @@ public class GoFishGame extends Game {
 
     @Override
     public void declareWinner() {
-        
+
     }
 
     public boolean isValidInput(String input) {
