@@ -1,9 +1,29 @@
 
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class GoFishGame extends Game {
 
     public static void main(String[] args) {
+
+        // begin
+        Scanner scan = new Scanner(System.in);
+
+        String playerOneName, playerTwoName;
+
+        System.out.println("Player one name: ");
+        playerOneName = scan.next();
+
+        System.out.println("Player two name: ");
+        playerTwoName = scan.next();
+
+        GoFishPlayer player1 = new GoFishPlayer(playerOneName);
+        GoFishPlayer player2 = new GoFishPlayer(playerTwoName);
+
+        GoFishGame game = new GoFishGame("Go Fish!");
 
     }
 
@@ -13,7 +33,32 @@ public class GoFishGame extends Game {
 
     @Override
     public void play() {
-        // function to request card from other player?
+
+        // begin
+        Scanner scan = new Scanner(System.in);
+
+        String playerOneName, playerTwoName;
+
+        System.out.println("Player one name: ");
+        playerOneName = scan.next();
+
+        System.out.println("Player two name: ");
+        playerTwoName = scan.next();
+
+        GoFishPlayer player1 = new GoFishPlayer(playerOneName);
+        GoFishPlayer player2 = new GoFishPlayer(playerTwoName);
+        List<Player> playerList = new ArrayList<Player>();
+        playerList.add(player1);
+        playerList.add(player2);
+
+        GoFishDeck deck = new GoFishDeck(50);
+        deck.deal(playerList);
+
+        // game loop
+        while (true) {
+
+        }
+
     }
 
     @Override
@@ -25,20 +70,16 @@ public class GoFishGame extends Game {
         boolean returnVal = false;
 
         String[] suits = { "spades", "clubs", "hearts", "diamonds" };
-        String[] nums = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-        String[] honor = { "jack", "queen", "king", "ace" };
+        String[] ranks = {
+                "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"
+        };
 
         for (String a : suits) {
             if (input.contains(a))
                 returnVal = true;
         }
 
-        for (String a : nums) {
-            if (input.contains(a))
-                returnVal = true;
-        }
-
-        for (String a : honor) {
+        for (String a : ranks) {
             if (input.contains(a))
                 returnVal = true;
         }

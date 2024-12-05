@@ -3,6 +3,9 @@ package ca.sheridancollege.project;
 
 import ca.sheridancollege.project.Hand;
 import ca.sheridancollege.project.Player;
+
+import java.util.List;
+
 import ca.sheridancollege.project.GoFishDeck;
 
 /**
@@ -20,7 +23,6 @@ public class GoFishPlayer extends Player {
     }
 
     public boolean askForCard(GoFishPlayer otherPlayer, String rank, String suit) {
-        // TODO: implement
 
         // temp card for comparison
 
@@ -30,17 +32,19 @@ public class GoFishPlayer extends Player {
         if (otherPlayer.getHand().getCards().contains(tempcard)) {
             // System.out.println(otherPlayer.getName() + " Has the " + rank + " of " +
             // suit);
-
+            return true;
         }
-
+        return false;
     }
 
     public void goFish(GoFishDeck deck) {
         // TODO: implement
     }
 
-    public boolean checkForSelf() {
+    // checks if set of 4 cards exist in deck
+    public boolean checkForSet() {
         // TODO: implement
+
     }
 
     public Hand getHand() {
