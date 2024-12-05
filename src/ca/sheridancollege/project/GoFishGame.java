@@ -3,7 +3,11 @@ package ca.sheridancollege.project;
 
 public class GoFishGame extends Game {
     
-
+    public static void main(String[] args) {
+        
+    }
+    
+    
     public GoFishGame(String name) {
         super(name);
     }                                                                                                                                                                                                                                                                                                              
