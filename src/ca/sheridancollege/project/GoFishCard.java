@@ -17,10 +17,7 @@ public class GoFishCard extends Card {
 
     @Override
     public String toString() {
-        // throw new UnsupportedOperationException("Not supported yet."); // Generated
-        // from
-        // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        return "";
+        return this.rank + " " + this.suit;
     }
 
     public void markAsRequetsed() {
