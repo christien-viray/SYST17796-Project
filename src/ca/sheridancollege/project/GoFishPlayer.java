@@ -5,6 +5,12 @@ import ca.sheridancollege.project.Hand;
 import ca.sheridancollege.project.Player;
 import ca.sheridancollege.project.GoFishDeck;
 
+/**
+ * @author Elliot Currie
+ *
+ *
+ */
+
 public class GoFishPlayer {
 
     private Hand hand;
