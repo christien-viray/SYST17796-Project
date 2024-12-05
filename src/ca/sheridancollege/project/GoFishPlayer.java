@@ -23,6 +23,7 @@ public class GoFishPlayer extends Player {
 
     public GoFishPlayer(String name) {
         super(name);
+        this.hand= new Hand();
     }
 
     public boolean askForCard(GoFishPlayer otherPlayer, String rank, String suit) {
@@ -50,43 +51,23 @@ public class GoFishPlayer extends Player {
         List<GoFishCard> currentCards = this.hand.getCards();
         Map<String, Integer> duplicateTracker = new HashMap<String, Integer>();
 
-        duplicateTracker.put("Ace", 0);
-        duplicateTracker.put("2", 0);
-        duplicateTracker.put("3", 0);
-        duplicateTracker.put("4", 0);
-        duplicateTracker.put("5", 0);
-        duplicateTracker.put("6", 0);
-        duplicateTracker.put("7", 0);
-        duplicateTracker.put("8", 0);
-        duplicateTracker.put("9", 0);
-        duplicateTracker.put("10", 0);
-        duplicateTracker.put("King", 0);
-        duplicateTracker.put("Queen", 0);
-        duplicateTracker.put("Jack", 0);
-        duplicateTracker.put("Hearts", 0);
-        duplicateTracker.put("Diamonds", 0);
-        duplicateTracker.put("Spades", 0);
-        duplicateTracker.put("Clubs", 0);
+    String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    for (String rank : ranks) {
+        duplicateTracker.put(rank, 0);
+    }
 
-        // iteration over cards in hand
-        for (int x = 0; x < currentCards.size(); x++) {
-            String[] splitTemp = currentCards.get(x).toString().split(" ");
-            String rankTemp = splitTemp[0];
-            String suitTemp = splitTemp[1];
+    for (GoFishCard card : currentCards) {
+        String rank = card.getRank();
+        duplicateTracker.put(rank, duplicateTracker.get(rank) + 1);
+    }
 
-            int prevCountRank = duplicateTracker.get(rankTemp);
-            int prevCountSuit = duplicateTracker.get(suitTemp);
-
-            duplicateTracker.remove(rankTemp);
-            duplicateTracker.remove(suitTemp);
-
-            duplicateTracker.put(rankTemp, prevCountRank + 1);
-            duplicateTracker.put(suitTemp, prevCountSuit + 1);
-
+    for (int count : duplicateTracker.values()) {
+        if (count == 4) {
+            return true;
         }
+    }
 
-        // iterating over values in hashmap
-        if ()
+    return false;
 
     }
 

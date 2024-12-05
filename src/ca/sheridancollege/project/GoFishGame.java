@@ -12,19 +12,20 @@ public class GoFishGame extends Game {
         // begin
         Scanner scan = new Scanner(System.in);
 
-        String playerOneName, playerTwoName;
+        System.out.println("Enter the number of players: ");
+        int numPlayers = scan.nextInt();
+        scan.nextLine(); // Consume newline
 
-        System.out.println("Player one name: ");
-        playerOneName = scan.next();
-
-        System.out.println("Player two name: ");
-        playerTwoName = scan.next();
-
-        GoFishPlayer player1 = new GoFishPlayer(playerOneName);
-        GoFishPlayer player2 = new GoFishPlayer(playerTwoName);
+        List<GoFishPlayer> players = new ArrayList<>();
+        for (int i = 1; i <= numPlayers; i++) {
+            System.out.println("Player " + i + " name: ");
+            String playerName = scan.nextLine();
+            players.add(new GoFishPlayer(playerName));
+        }
 
         GoFishGame game = new GoFishGame("Go Fish!");
-
+        game.setPlayers(new ArrayList<>(players));
+        game.play();
     }
 
     public GoFishGame(String name) {
@@ -63,7 +64,7 @@ public class GoFishGame extends Game {
 
     @Override
     public void declareWinner() {
-
+        
     }
 
     public boolean isValidInput(String input) {

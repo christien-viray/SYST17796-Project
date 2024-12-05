@@ -48,23 +48,4 @@ public abstract class Player {
 
 }
 
-public class Game {
-    private PlayerManager playerManager;  // Composition relationship with PlayerManager
-    private Turns turns;  // Composition relationship with Turns
-
-    public Game() {
-        this.playerManager = new PlayerManager(this);
-        this.turns = new Turns(this);
-    }
-
-    public PlayerManager getPlayerManager() {
-        return playerManager;
-    }
-
-    public Turns getTurns() {
-        return turns;
-    }
-
-    // Other game-related methods could be added here
-}
 

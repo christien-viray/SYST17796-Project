@@ -18,11 +18,14 @@ public abstract class Game {
 
     private final String name;//the title of the game
     private ArrayList<Player> players;// the players of the game
+    private PlayerManager playerManager;
+    private Turns turns;
 
     public Game(String name) {
    
         this.name = name;
         players = new ArrayList();
+        this.playerManager = new PlayerManager(this);
     }
 
     /**
@@ -45,6 +48,14 @@ public abstract class Game {
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
+    
+    public PlayerManager getPlayerManager(){
+        return playerManager;
+    }
+    
+   public Turns getTurns(){
+       return turns;
+   }
 
     /**
      * Play the game. This might be one method or many method calls depending on your game.

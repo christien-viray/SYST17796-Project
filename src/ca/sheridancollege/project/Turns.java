@@ -26,7 +26,7 @@ public class Turns {
 
     public Player getCurrentPlayer() {
         return game.getPlayerManager().getPlayers().get(currentPlayerIndex);
-        return currentPlayer;
+        
     }
 
     public void nextTurn() {
@@ -38,5 +38,6 @@ public class Turns {
             currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
             // Logic to notify the next player that it's their turn could be added here.
 
+    }
     }
 }
