@@ -63,7 +63,7 @@ public class GoFishGame extends Game {
         }
 
         GoFishDeck deck = new GoFishDeck(50);
-        deck.deal(this.players);
+        deck.deal(castedPlayers);
 
         // game loop
 
@@ -86,7 +86,7 @@ public class GoFishGame extends Game {
                 castedPlayers.get(playerSelect).goFish(deck);
             }
 
-            if (playerSelect == castedPlayers.size())
+            if (playerSelect + 1 == castedPlayers.size())
                 playerSelect = 0;
             else
                 playerSelect++;

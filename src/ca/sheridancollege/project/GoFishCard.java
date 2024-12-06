@@ -21,7 +21,7 @@ public class GoFishCard extends Card {
 
     @Override
     public String toString() {
-        return this.rank + " " + this.suit;
+        return this.suit + " of " + this.rank;
     }
 
     public void markAsRequetsed() {

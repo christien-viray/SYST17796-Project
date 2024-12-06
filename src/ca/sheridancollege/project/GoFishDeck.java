@@ -6,6 +6,8 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import ca.sheridancollege.project.GoFishPlayer;
 
 /**
@@ -34,12 +36,33 @@ public class GoFishDeck extends GroupOfCards {
         shuffle();
     }
 
-    public void deal(List<Player> players) {
+    public void deal(List<GoFishPlayer> players) {
+
         int playerIndex = 0;
-        while (!this.getCards().isEmpty()) {
-            Card card = this.getCards().remove(this.getCards().size() - 1);
-            ((GoFishPlayer) players.get(playerIndex)).getHand().drawCard(card);
-            playerIndex = (playerIndex + 1) % players.size();
+        // while (!this.getCards().isEmpty()) {
+        // Card card = this.getCards().remove(this.getCards().size() - 1);
+        // ((GoFishPlayer) players.get(playerIndex)).getHand().drawCard(card);
+        // playerIndex = (playerIndex + 1) % players.size();
+        // }
+
+        final int playerCardAmount = 5;
+        int cardsToBeDelt = 5 * players.size();
+
+        Random rand = new Random();
+
+        for (int x = 0; x < cardsToBeDelt; x++) {
+            int randIndex = rand.nextInt(this.cards.size());
+
+            players.get(playerIndex).getHand().drawCard(this.cards.get(randIndex));
+
+            if (playerIndex + 1 == players.size())
+                playerIndex = 0;
+            else
+                playerIndex++;
+
         }
+
+        // deals 5 cards to each
+
     }
 }

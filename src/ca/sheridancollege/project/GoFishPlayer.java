@@ -90,8 +90,8 @@ public class GoFishPlayer extends Player {
 
     public void printCurrentHand() {
         System.out.print("[ ");
-        for (Card i : this.hand.getCards()) {
-            System.out.print(i + " ");
+        for (GoFishCard i : this.hand.getCards()) {
+            System.out.print(i.toString() + " ");
         }
         System.out.println(" ]");
     }
