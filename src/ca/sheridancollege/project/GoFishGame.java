@@ -77,7 +77,7 @@ public class GoFishGame extends Game {
             System.out.println("What card would you like to ask for: ");
             String rank = scan.nextLine();
 
-            boolean requestResult = castedPlayers.get(playerSelect).askForCard(castedPlayers.get(1), rank);
+            boolean requestResult = castedPlayers.get(playerSelect).askForCard(castedPlayers.get(1), rank.trim());
 
             if (requestResult) {
                 System.out.println("other player has requested card!");

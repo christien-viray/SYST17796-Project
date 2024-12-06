@@ -33,7 +33,11 @@ public class GoFishPlayer extends Player {
         // GoFishCard tempcard = new GoFishCard(suit, rank);
 
         for (GoFishCard i : otherPlayer.getHand().getCards()) {
-            if (i.getRank() == trait || i.getSuit() == trait) {
+
+            System.out
+                    .println("Testing to see if " + trait + " matches with " + i.getRank() + " or " + i.getSuit());
+            if (i.getRank().contains(trait) || i.getSuit().contains(trait)) {
+                System.out.println("match found...");
                 this.hand.giveCard(this, otherPlayer, i);
                 return true;
             }
