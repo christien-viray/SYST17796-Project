@@ -34,7 +34,7 @@ public class GoFishPlayer extends Player {
 
         for (GoFishCard i : otherPlayer.getHand().getCards()) {
             if (i.getRank() == trait || i.getSuit() == trait) {
-                i.markAsRequetsed();
+                this.hand.giveCard(this, otherPlayer, i);
                 return true;
             }
 

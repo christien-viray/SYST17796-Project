@@ -66,14 +66,30 @@ public class GoFishGame extends Game {
         deck.deal(this.players);
 
         // game loop
+
+        int playerSelect = 0;
+
         while (true) {
             // shows cards
-            castedPlayers.get(0).printCurrentHand();
+            System.out.println("It's " + castedPlayers.get(playerSelect).getName() + "'s turn!");
+
+            castedPlayers.get(playerSelect).printCurrentHand();
             System.out.println("What card would you like to ask for: ");
             String rank = scan.nextLine();
 
-            castedPlayers.get(0).askForCard(castedPlayers.get(1), rank);
+            boolean requestResult = castedPlayers.get(playerSelect).askForCard(castedPlayers.get(1), rank);
 
+            if (requestResult) {
+                System.out.println("other player has requested card!");
+            } else {
+                System.out.println("other player does not have requested card! Go Fish!");
+                castedPlayers.get(playerSelect).goFish(deck);
+            }
+
+            if (playerSelect == castedPlayers.size())
+                playerSelect = 0;
+            else
+                playerSelect++;
         }
 
     }
