@@ -26,17 +26,18 @@ public class GoFishPlayer extends Player {
         this.hand = new Hand();
     }
 
-    public boolean askForCard(GoFishPlayer otherPlayer, String rank, String suit) {
+    public boolean askForCard(GoFishPlayer otherPlayer, String trait) {
 
         // temp card for comparison
 
-        GoFishCard tempcard = new GoFishCard(suit, rank);
+        // GoFishCard tempcard = new GoFishCard(suit, rank);
 
-        // other player has requested card
-        if (otherPlayer.getHand().getCards().contains(tempcard)) {
-            // System.out.println(otherPlayer.getName() + " Has the " + rank + " of " +
-            // suit);
-            return true;
+        for (GoFishCard i : otherPlayer.getHand().getCards()) {
+            if (i.getRank() == trait || i.getSuit() == trait) {
+                i.markAsRequetsed();
+                return true;
+            }
+
         }
         return false;
     }
@@ -85,6 +86,14 @@ public class GoFishPlayer extends Player {
     public void play() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'play'");
+    }
+
+    public void printCurrentHand() {
+        System.out.print("[ ");
+        for (Card i : this.hand.getCards()) {
+            System.out.print(i + " ");
+        }
+        System.out.println(" ]");
     }
 
 }
