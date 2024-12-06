@@ -25,6 +25,19 @@ public class Hand {
     }
 
     public void giveCard(Player fromPlayer, Player toPlayer, Card card) {
+        // System.out.println("giveCard method...");
+
+        // System.out.println("ToPlayer: " + toPlayer.getName() + "\nFromPlayer: " +
+        // fromPlayer.getName());
+        // System.out.println("Card to give: " + card.toString());
+
+        // System.out.println("Printing cards -- ");
+        // for (GoFishCard i : this.cards) {
+        // System.out.println(i + ", ");
+        // }
+
+        this.cards.add((GoFishCard) card);
+
         if (cards.remove(card)) {
             ((GoFishPlayer) toPlayer).getHand().drawCard(card);
         }
@@ -46,5 +59,9 @@ public class Hand {
 
     public List<GoFishCard> getCards() {
         return new ArrayList<GoFishCard>(cards);
+    }
+
+    public void removeCard(Card i) {
+        this.cards.remove(i);
     }
 }

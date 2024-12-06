@@ -71,9 +71,15 @@ public class GoFishGame extends Game {
 
         while (true) {
             // shows cards
+
+            System.out.println("DECK UPDATE");
+            for (GoFishPlayer i : castedPlayers) {
+                System.out.println(i.getName() + "'s Deck: " + i.getHand().getCards().toString());
+            }
+
             System.out.println("It's " + castedPlayers.get(playerSelect).getName() + "'s turn!");
 
-            castedPlayers.get(playerSelect).printCurrentHand();
+            // castedPlayers.get(playerSelect).printCurrentHand();
             System.out.println("What card would you like to ask for: ");
             String rank = scan.nextLine();
 

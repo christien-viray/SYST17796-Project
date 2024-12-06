@@ -34,11 +34,14 @@ public class GoFishPlayer extends Player {
 
         for (GoFishCard i : otherPlayer.getHand().getCards()) {
 
-            System.out
-                    .println("Testing to see if " + trait + " matches with " + i.getRank() + " or " + i.getSuit());
+            // System.out
+            // .println("Testing to see if " + trait + " matches with " + i.getRank() + " or
+            // " + i.getSuit());
             if (i.getRank().contains(trait) || i.getSuit().contains(trait)) {
-                System.out.println("match found...");
-                this.hand.giveCard(this, otherPlayer, i);
+                // System.out.println("match found...");
+                this.hand.giveCard(otherPlayer, this, i);
+                otherPlayer.hand.removeCard(i);
+                ;
                 return true;
             }
 
